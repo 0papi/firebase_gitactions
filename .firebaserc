@@ -1,5 +1,17 @@
 {
   "projects": {
     "default": "fir-gitactions-demo"
+  },
+  "targets": {
+    "fir-gitactions-demo": {
+      "hosting": {
+        "client": [
+          "fir-gitactions-demo"
+        ],
+        "develop": [
+          "fir-gitactions-dev"
+        ]
+      }
+    }
   }
 }

@@ -1,5 +1,16 @@
 {
-  "hosting": {
+  "hosting": [
+    {
+      "target":"client",
+    "public": "out",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  },
+  {
+    "target": "develop",
     "public": "out",
     "ignore": [
       "firebase.json",
@@ -7,4 +18,5 @@
       "**/node_modules/**"
     ]
   }
+]
 }
