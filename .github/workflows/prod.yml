@@ -1,7 +1,7 @@
 name: Build and deploy
 on:
   push:
-    branches: [ dev ]
+    branches: [ main ]
 
   # Run workflow manually
   workflow_dispatch:
@@ -17,8 +17,6 @@ jobs:
         run: npm i
       - name: Build dependencies
         run: npm run build
-        env:
-          NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL }}
       - name: Archive production artifact
         uses: actions/upload-artifact@v2
         with:

@@ -1,8 +1,21 @@
 import Head from 'next/head'
+import { useEffect } from 'react'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
+
+
+  useEffect(() => {
+    async function getPosts() {
+      const res = await fetch(process.env.NEXT_PUBLIC_API_URL)
+      const data = await res.json()
+
+      console.log(data)
+    }
+
+    getPosts()
+  }, [])
   return (
     <div className={styles.container}>
       <Head>
