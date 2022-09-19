@@ -1,16 +1,17 @@
 import Head from 'next/head'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
-
+  const [posts, setPosts] = useState([])
 
   useEffect(() => {
     async function getPosts() {
       const res = await fetch(process.env.NEXT_PUBLIC_API_URL)
       const data = await res.json()
 
+      setPosts(data)
       console.log(data)
     }
 
@@ -25,6 +26,10 @@ export default function Home() {
       </Head>
 
       <h2>Hello world let run this</h2>
+
+      {
+        posts && posts.map((post) => <h2 key={post.id}>{post.title}</h2>)
+      }
     </div>
   )
 }
